@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <new>
 
 enum D3DDEVTYPE
 {
@@ -82,10 +83,14 @@ public:
     IFACEMETHOD(RegisterSoftwareDevice)(void* pInitializeFunction) override;
 };
 
+BOOL WINAPI DllMain(_In_ HINSTANCE instance, DWORD reason, _In_opt_ PVOID reserved)
+{
+    return TRUE;
+}
+
 struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDKVersion)
 {
-    //return new(std::nothrow) CDirect3D9();
-    return nullptr;
+    return new(std::nothrow) CDirect3D9();
 }
 
 HRESULT WINAPI Direct3DCreate9Ex(UINT SDKVersion, _Outptr_ struct IDirect3D9Ex** ppD3D)
