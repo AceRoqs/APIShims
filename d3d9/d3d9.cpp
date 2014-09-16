@@ -20,7 +20,7 @@ enum D3DRESOURCETYPE
     D3DRTYPE_VOLUME = 2,
     D3DRTYPE_TEXTURE = 3,
     D3DRTYPE_VOLUMETEXTURE = 4,
-    D3DRTYPE_CubeTexture = 5,
+    D3DRTYPE_CUBETEXTURE = 5,
     D3DRTYPE_VERTEXBUFFER = 6,
     D3DRTYPE_INDEXBUFFER = 7,
     D3DRTYPE_FORCE_DWORD = 0x7fffffff
@@ -58,7 +58,17 @@ struct IDirect3D9 : public IUnknown
     IFACEMETHOD(RegisterSoftwareDevice)(void* pInitializeFunction) = 0;
 };
 
-class CDirect3D9 : public IDirect3D9
+struct IDirect3D9Ex : public IDirect3D9
+{
+    IFACEMETHOD(CreateDeviceEx)(UINT Adapter, D3DDEVTYPE DeviceType, _In_opt_ HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters,
+                                _Out_ struct D3DDISPLAYMODEEX* pFullscreenDisplayMode, _Outptr_ struct IDirect3DDevice9Ex** ppReturnedDeviceInterface) = 0;
+    IFACEMETHOD(EnumAdapterModesEx)(UINT Adapter, _In_ const struct D3DDISPLAYMODEFILTER* pFilter, UINT Mode, _Out_ D3DDISPLAYMODEEX* pMode) = 0;
+    IFACEMETHOD(GetAdapterDisplayModeEx)(UINT Adapter, _Out_opt_ D3DDISPLAYMODEEX* pMode, _Out_opt_ enum D3DDISPLAYROTATION* pRotation) = 0;
+    IFACEMETHOD(GetAdapterLUID)(UINT Adapter, _Out_ LUID* pLUID) = 0;
+    IFACEMETHOD(GetAdapterModeCountEx)(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter) = 0;
+};
+
+class CDirect3D9 : public IDirect3D9Ex
 {
 public:
     // IUnknown.
@@ -81,6 +91,14 @@ public:
     IFACEMETHOD_(HMONITOR, GetAdapterMonitor)(UINT Adapter) override;
     IFACEMETHOD(GetDeviceCaps)(UINT Adapter, D3DDEVTYPE DeviceType, _Out_ D3DCAPS9* pCaps) override;
     IFACEMETHOD(RegisterSoftwareDevice)(void* pInitializeFunction) override;
+
+    // IDirect3D9Ex.
+    IFACEMETHOD(CreateDeviceEx)(UINT Adapter, D3DDEVTYPE DeviceType, _In_opt_ HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters,
+        _Out_ struct D3DDISPLAYMODEEX* pFullscreenDisplayMode, _Outptr_ struct IDirect3DDevice9Ex** ppReturnedDeviceInterface) override;
+    IFACEMETHOD(EnumAdapterModesEx)(UINT Adapter, _In_ const struct D3DDISPLAYMODEFILTER* pFilter, UINT Mode, _Out_ D3DDISPLAYMODEEX* pMode) override;
+    IFACEMETHOD(GetAdapterDisplayModeEx)(UINT Adapter, _Out_opt_ D3DDISPLAYMODEEX* pMode, _Out_opt_ enum D3DDISPLAYROTATION* pRotation) override;
+    IFACEMETHOD(GetAdapterLUID)(UINT Adapter, _Out_ LUID* pLUID) override;
+    IFACEMETHOD(GetAdapterModeCountEx)(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter) override;
 };
 
 BOOL WINAPI DllMain(_In_ HINSTANCE instance, DWORD reason, _In_opt_ PVOID reserved)
@@ -187,6 +205,32 @@ IFACEMETHODIMP CDirect3D9::GetDeviceCaps(UINT Adapter, D3DDEVTYPE DeviceType, _O
 }
 
 IFACEMETHODIMP CDirect3D9::RegisterSoftwareDevice(void* pInitializeFunction)
+{
+    return E_NOTIMPL;
+}
+
+IFACEMETHODIMP CDirect3D9::CreateDeviceEx(UINT Adapter, D3DDEVTYPE DeviceType, _In_opt_ HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters,
+    _Out_ struct D3DDISPLAYMODEEX* pFullscreenDisplayMode, _Outptr_ struct IDirect3DDevice9Ex** ppReturnedDeviceInterface)
+{
+    return E_NOTIMPL;
+}
+
+IFACEMETHODIMP CDirect3D9::EnumAdapterModesEx(UINT Adapter, _In_ const struct D3DDISPLAYMODEFILTER* pFilter, UINT Mode, _Out_ D3DDISPLAYMODEEX* pMode)
+{
+    return E_NOTIMPL;
+}
+
+IFACEMETHODIMP CDirect3D9::GetAdapterDisplayModeEx(UINT Adapter, _Out_opt_ D3DDISPLAYMODEEX* pMode, _Out_opt_ enum D3DDISPLAYROTATION* pRotation)
+{
+    return E_NOTIMPL;
+}
+
+IFACEMETHODIMP CDirect3D9::GetAdapterLUID(UINT Adapter, _Out_ LUID* pLUID)
+{
+    return E_NOTIMPL;
+}
+
+IFACEMETHODIMP CDirect3D9::GetAdapterModeCountEx(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter)
 {
     return E_NOTIMPL;
 }
