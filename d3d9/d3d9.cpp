@@ -101,11 +101,6 @@ public:
     IFACEMETHOD(GetAdapterModeCountEx)(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter) override;
 };
 
-BOOL WINAPI DllMain(_In_ HINSTANCE instance, DWORD reason, _In_opt_ PVOID reserved)
-{
-    return TRUE;
-}
-
 struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDKVersion)
 {
     return new(std::nothrow) CDirect3D9();
@@ -114,14 +109,6 @@ struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDKVersion)
 HRESULT WINAPI Direct3DCreate9Ex(UINT SDKVersion, _Outptr_ struct IDirect3D9Ex** ppD3D)
 {
     return E_NOTIMPL;
-}
-
-void WINAPI DebugSetMute()
-{
-}
-
-void WINAPI Direct3DShaderValidatorCreate9()
-{
 }
 
 IFACEMETHODIMP_(ULONG) CDirect3D9::AddRef()
