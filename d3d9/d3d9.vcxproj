@@ -86,6 +86,9 @@
   <ItemGroup>
     <None Include="d3d9.def" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IDirect3D9.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
