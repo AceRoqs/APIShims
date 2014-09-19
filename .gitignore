@@ -1,0 +1,9 @@
+*.sdf
+*.suo
+*.user
+*.opensdf
+Debug/*
+Release/*
+d3d9/Debug/*
+d3d9/Release/*
+
