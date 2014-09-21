@@ -2,6 +2,11 @@
 #include <new>
 #include "IDirect3D9.h"
 
+#include <InitGuid.h>
+// Interface IDs.
+DEFINE_GUID(IID_IDirect3D9, 0x81bdcbca, 0x64d4, 0x426d, 0xae, 0x8d, 0xad, 0x1, 0x47, 0xf4, 0x27, 0x5c);
+DEFINE_GUID(IID_IDirect3D9Ex, 0x02177241, 0x69FC, 0x400C, 0x8F, 0xF1, 0x93, 0xA4, 0x4D, 0xF6, 0x86, 0x1D);
+
 #if 0
 enum D3DDEVTYPE
 {
@@ -46,6 +51,8 @@ struct D3DCAPS9; // TODO
 class Direct3D9 : public IDirect3D9Ex
 {
 public:
+    Direct3D9();
+
     // IUnknown.
     IFACEMETHOD_(ULONG, AddRef)() override;
     IFACEMETHOD_(ULONG, Release)() override;
@@ -74,6 +81,9 @@ public:
     IFACEMETHOD(GetAdapterDisplayModeEx)(UINT Adapter, _Out_opt_ D3DDISPLAYMODEEX* pMode, _Out_opt_ enum D3DDISPLAYROTATION* pRotation) override;
     IFACEMETHOD(GetAdapterLUID)(UINT Adapter, _Out_ LUID* pLUID) override;
     IFACEMETHOD(GetAdapterModeCountEx)(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter) override;
+
+private:
+    ULONG m_references;
 };
 
 struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDKVersion)
@@ -86,19 +96,46 @@ HRESULT WINAPI Direct3DCreate9Ex(UINT SDKVersion, _Outptr_ struct IDirect3D9Ex**
     return E_NOTIMPL;
 }
 
+Direct3D9::Direct3D9() : m_references(1)
+{
+}
+
 IFACEMETHODIMP_(ULONG) Direct3D9::AddRef()
 {
-    return 0;
+    return InterlockedIncrement(&m_references);
 }
 
 IFACEMETHODIMP_(ULONG) Direct3D9::Release()
 {
-    return 0;
+    ULONG references = InterlockedDecrement(&m_references);
+    if(references == 0)
+    {
+        delete this;
+    }
+    return references;
 }
 
 IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _Outptr_ void** ppvObject)
 {
-    return E_NOTIMPL;
+    HRESULT hr;
+
+    if(ppvObject == nullptr)
+    {
+        hr = E_POINTER;
+    }
+    else if((riid == IID_IUnknown) || (riid == IID_IDirect3D9) || (riid == IID_IDirect3D9Ex))
+    {
+        AddRef();
+        IDirect3D9Ex* out_pointer = this;
+        *ppvObject = out_pointer;
+        hr = S_OK;
+    }
+    else
+    {
+        hr = E_NOINTERFACE;
+    }
+
+    return hr;
 }
 
 IFACEMETHODIMP Direct3D9::CheckDepthStencilMatch(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, D3DFORMAT RenderTargetFormat, D3DFORMAT DepthStencilFormat)
