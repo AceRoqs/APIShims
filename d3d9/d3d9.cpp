@@ -56,42 +56,42 @@ public:
     // IUnknown.
     IFACEMETHOD_(ULONG, AddRef)() override;
     IFACEMETHOD_(ULONG, Release)() override;
-    IFACEMETHOD(QueryInterface)(REFIID riid, _Outptr_ void** ppvObject) override;
+    IFACEMETHOD(QueryInterface)(REFIID riid, _Outptr_ void** object) override;
 
     // IDirect3D9.
-    IFACEMETHOD(CheckDepthStencilMatch)(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, D3DFORMAT RenderTargetFormat, D3DFORMAT DepthStencilFormat) override;
-    IFACEMETHOD(CheckDeviceFormat)(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, DWORD Usage, D3DRESOURCETYPE RType, D3DFORMAT CheckFormat) override;
-    IFACEMETHOD(CheckDeviceFormatConversion)(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SourceFormat, D3DFORMAT TargetFormat) override;
-    IFACEMETHOD(CheckDeviceMultiSampleType)(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SurfaceFormat, BOOL Windowed, D3DMULTISAMPLE_TYPE MultiSampleType, _Out_ DWORD* pQualityLevels) override;
-    IFACEMETHOD(CheckDeviceType)(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT DisplayFormat, D3DFORMAT BackBufferFormat, BOOL Windowed) override;
-    IFACEMETHOD(CreateDevice)(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters, _Outptr_ struct IDirect3DDevice9** ppReturnedDeviceInterface) override;
-    IFACEMETHOD(EnumAdapterModes)(UINT Adapter, D3DFORMAT Format, UINT Mode, _Out_ D3DDISPLAYMODE* pMode) override;
+    IFACEMETHOD(CheckDepthStencilMatch)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, D3DFORMAT render_target_format, D3DFORMAT depth_stencil_format) override;
+    IFACEMETHOD(CheckDeviceFormat)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, DWORD usage, D3DRESOURCETYPE resource_type, D3DFORMAT check_format) override;
+    IFACEMETHOD(CheckDeviceFormatConversion)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT source_format, D3DFORMAT target_format) override;
+    IFACEMETHOD(CheckDeviceMultiSampleType)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT surface_format, BOOL windowed, D3DMULTISAMPLE_TYPE multisample_type, _Out_ DWORD* quality_levels) override;
+    IFACEMETHOD(CheckDeviceType)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT display_format, D3DFORMAT back_buffer_format, BOOL windowed) override;
+    IFACEMETHOD(CreateDevice)(UINT adapter, D3DDEVTYPE device_type, HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ struct IDirect3DDevice9** device_interface) override;
+    IFACEMETHOD(EnumAdapterModes)(UINT adapter, D3DFORMAT format, UINT index, _Out_ D3DDISPLAYMODE* mode) override;
     IFACEMETHOD_(UINT, GetAdapterCount)() override;
-    IFACEMETHOD(GetAdapterDisplayMode)(UINT Adapter, _Out_ D3DDISPLAYMODE* pMode) override;
-    IFACEMETHOD(GetAdapterIdentifier)(UINT Adapter, DWORD Flags, _Out_ D3DADAPTER_IDENTIFIER9* pIdentifier) override;
-    IFACEMETHOD_(UINT, GetAdapterModeCount)(UINT Adapter, D3DFORMAT Format) override;
-    IFACEMETHOD_(HMONITOR, GetAdapterMonitor)(UINT Adapter) override;
-    IFACEMETHOD(GetDeviceCaps)(UINT Adapter, D3DDEVTYPE DeviceType, _Out_ D3DCAPS9* pCaps) override;
-    IFACEMETHOD(RegisterSoftwareDevice)(void* pInitializeFunction) override;
+    IFACEMETHOD(GetAdapterDisplayMode)(UINT adapter, _Out_ D3DDISPLAYMODE* mode) override;
+    IFACEMETHOD(GetAdapterIdentifier)(UINT adapter, DWORD flags, _Out_ D3DADAPTER_IDENTIFIER9* identifier) override;
+    IFACEMETHOD_(UINT, GetAdapterModeCount)(UINT adapter, D3DFORMAT format) override;
+    IFACEMETHOD_(HMONITOR, GetAdapterMonitor)(UINT adapter) override;
+    IFACEMETHOD(GetDeviceCaps)(UINT adapter, D3DDEVTYPE device_type, _Out_ D3DCAPS9* caps) override;
+    IFACEMETHOD(RegisterSoftwareDevice)(void* initialize_function) override;
 
     // IDirect3D9Ex.
-    IFACEMETHOD(CreateDeviceEx)(UINT Adapter, D3DDEVTYPE DeviceType, _In_opt_ HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters,
-        _Out_ struct D3DDISPLAYMODEEX* pFullscreenDisplayMode, _Outptr_ struct IDirect3DDevice9Ex** ppReturnedDeviceInterface) override;
-    IFACEMETHOD(EnumAdapterModesEx)(UINT Adapter, _In_ const struct D3DDISPLAYMODEFILTER* pFilter, UINT Mode, _Out_ D3DDISPLAYMODEEX* pMode) override;
-    IFACEMETHOD(GetAdapterDisplayModeEx)(UINT Adapter, _Out_opt_ D3DDISPLAYMODEEX* pMode, _Out_opt_ enum D3DDISPLAYROTATION* pRotation) override;
-    IFACEMETHOD(GetAdapterLUID)(UINT Adapter, _Out_ LUID* pLUID) override;
-    IFACEMETHOD(GetAdapterModeCountEx)(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter) override;
+    IFACEMETHOD(CreateDeviceEx)(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters,
+        _Out_ struct D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ struct IDirect3DDevice9Ex** device_interface) override;
+    IFACEMETHOD(EnumAdapterModesEx)(UINT adapter, _In_ const struct D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode) override;
+    IFACEMETHOD(GetAdapterDisplayModeEx)(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ enum D3DDISPLAYROTATION* rotation) override;
+    IFACEMETHOD(GetAdapterLUID)(UINT adapter, _Out_ LUID* luid) override;
+    IFACEMETHOD(GetAdapterModeCountEx)(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter) override;
 
 private:
     ULONG m_references;
 };
 
-struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDKVersion)
+struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDK_version)
 {
     return new(std::nothrow) Direct3D9();
 }
 
-HRESULT WINAPI Direct3DCreate9Ex(UINT SDKVersion, _Outptr_ struct IDirect3D9Ex** ppD3D)
+HRESULT WINAPI Direct3DCreate9Ex(UINT SDK_version, _Outptr_ struct IDirect3D9Ex** direct3D)
 {
     return E_NOTIMPL;
 }
@@ -115,11 +115,11 @@ IFACEMETHODIMP_(ULONG) Direct3D9::Release()
     return references;
 }
 
-IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _Outptr_ void** ppvObject)
+IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _Outptr_ void** object)
 {
     HRESULT hr;
 
-    if(ppvObject == nullptr)
+    if(object == nullptr)
     {
         hr = E_POINTER;
     }
@@ -127,7 +127,7 @@ IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _Outptr_ void** ppvObject)
     {
         AddRef();
         IDirect3D9Ex* out_pointer = this;
-        *ppvObject = out_pointer;
+        *object = out_pointer;
         hr = S_OK;
     }
     else
@@ -138,37 +138,37 @@ IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _Outptr_ void** ppvObject)
     return hr;
 }
 
-IFACEMETHODIMP Direct3D9::CheckDepthStencilMatch(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, D3DFORMAT RenderTargetFormat, D3DFORMAT DepthStencilFormat)
+IFACEMETHODIMP Direct3D9::CheckDepthStencilMatch(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, D3DFORMAT render_target_format, D3DFORMAT depth_stencil_format)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CheckDeviceFormat(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT AdapterFormat, DWORD Usage, D3DRESOURCETYPE RType, D3DFORMAT CheckFormat)
+IFACEMETHODIMP Direct3D9::CheckDeviceFormat(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, DWORD usage, D3DRESOURCETYPE resource_type, D3DFORMAT check_format)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CheckDeviceFormatConversion(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SourceFormat, D3DFORMAT TargetFormat)
+IFACEMETHODIMP Direct3D9::CheckDeviceFormatConversion(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT source_format, D3DFORMAT target_format)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CheckDeviceMultiSampleType(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT SurfaceFormat, BOOL Windowed, D3DMULTISAMPLE_TYPE MultiSampleType, _Out_ DWORD* pQualityLevels)
+IFACEMETHODIMP Direct3D9::CheckDeviceMultiSampleType(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT surface_format, BOOL windowed, D3DMULTISAMPLE_TYPE multisample_type, _Out_ DWORD* quality_levels)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CheckDeviceType(UINT Adapter, D3DDEVTYPE DeviceType, D3DFORMAT DisplayFormat, D3DFORMAT BackBufferFormat, BOOL Windowed)
+IFACEMETHODIMP Direct3D9::CheckDeviceType(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT display_format, D3DFORMAT back_buffer_format, BOOL windowed)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters, _Outptr_ struct IDirect3DDevice9** ppReturnedDeviceInterface)
+IFACEMETHODIMP Direct3D9::CreateDevice(UINT adapter, D3DDEVTYPE device_type, HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ struct IDirect3DDevice9** device_interface)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::EnumAdapterModes(UINT Adapter, D3DFORMAT Format, UINT Mode, _Out_ D3DDISPLAYMODE* pMode)
+IFACEMETHODIMP Direct3D9::EnumAdapterModes(UINT adapter, D3DFORMAT format, UINT index, _Out_ D3DDISPLAYMODE* mode)
 {
     return E_NOTIMPL;
 }
@@ -178,58 +178,58 @@ IFACEMETHODIMP_(UINT) Direct3D9::GetAdapterCount()
     return 0;
 }
 
-IFACEMETHODIMP Direct3D9::GetAdapterDisplayMode(UINT Adapter, _Out_ D3DDISPLAYMODE* pMode)
+IFACEMETHODIMP Direct3D9::GetAdapterDisplayMode(UINT adapter, _Out_ D3DDISPLAYMODE* mode)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::GetAdapterIdentifier(UINT Adapter, DWORD Flags, _Out_ D3DADAPTER_IDENTIFIER9* pIdentifier)
+IFACEMETHODIMP Direct3D9::GetAdapterIdentifier(UINT adapter, DWORD flags, _Out_ D3DADAPTER_IDENTIFIER9* identifier)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP_(UINT) Direct3D9::GetAdapterModeCount(UINT Adapter, D3DFORMAT Format)
+IFACEMETHODIMP_(UINT) Direct3D9::GetAdapterModeCount(UINT adapter, D3DFORMAT format)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP_(HMONITOR) Direct3D9::GetAdapterMonitor(UINT Adapter)
+IFACEMETHODIMP_(HMONITOR) Direct3D9::GetAdapterMonitor(UINT adapter)
 {
     return nullptr;
 }
 
-IFACEMETHODIMP Direct3D9::GetDeviceCaps(UINT Adapter, D3DDEVTYPE DeviceType, _Out_ D3DCAPS9* pCaps)
+IFACEMETHODIMP Direct3D9::GetDeviceCaps(UINT adapter, D3DDEVTYPE device_type, _Out_ D3DCAPS9* caps)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::RegisterSoftwareDevice(void* pInitializeFunction)
+IFACEMETHODIMP Direct3D9::RegisterSoftwareDevice(void* initialize_function)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CreateDeviceEx(UINT Adapter, D3DDEVTYPE DeviceType, _In_opt_ HWND hFocusWindow, DWORD BehaviorFlags, _Inout_ D3DPRESENT_PARAMETERS* pPresentationParameters,
-    _Out_ struct D3DDISPLAYMODEEX* pFullscreenDisplayMode, _Outptr_ struct IDirect3DDevice9Ex** ppReturnedDeviceInterface)
+IFACEMETHODIMP Direct3D9::CreateDeviceEx(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters,
+    _Out_ struct D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ struct IDirect3DDevice9Ex** device_interface)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::EnumAdapterModesEx(UINT Adapter, _In_ const struct D3DDISPLAYMODEFILTER* pFilter, UINT Mode, _Out_ D3DDISPLAYMODEEX* pMode)
+IFACEMETHODIMP Direct3D9::EnumAdapterModesEx(UINT adapter, _In_ const struct D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::GetAdapterDisplayModeEx(UINT Adapter, _Out_opt_ D3DDISPLAYMODEEX* pMode, _Out_opt_ enum D3DDISPLAYROTATION* pRotation)
+IFACEMETHODIMP Direct3D9::GetAdapterDisplayModeEx(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ enum D3DDISPLAYROTATION* rotation)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::GetAdapterLUID(UINT Adapter, _Out_ LUID* pLUID)
+IFACEMETHODIMP Direct3D9::GetAdapterLUID(UINT adapter, _Out_ LUID* luid)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::GetAdapterModeCountEx(UINT Adapter, _In_ const D3DDISPLAYMODEFILTER* pFilter)
+IFACEMETHODIMP Direct3D9::GetAdapterModeCountEx(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter)
 {
     return E_NOTIMPL;
 }
