@@ -16,7 +16,7 @@ enum D3DDEVTYPE
     D3DDEVTYPE_SW = 3,
     D3DDEVTYPE_FORCE_DWORD = 0xffffffff
 };
-typedef D3DDEVTYPE* *LPD3DDEVTYPE;
+typedef D3DDEVTYPE* LPD3DDEVTYPE;
 
 enum D3DFORMAT; // TODO
 enum D3DMULTISAMPLE_TYPE; // TODO
@@ -41,7 +41,7 @@ struct D3DDISPLAYMODE
     UINT      RefreshRate;
     D3DFORMAT Format;
 };
-typedef D3DDISPLAYMODE *LPD3DDISPLAYMODE;
+typedef D3DDISPLAYMODE* LPD3DDISPLAYMODE;
 
 struct D3DPRESENT_PARAMETERS; // TODO
 struct D3DADAPTER_IDENTIFIER9; // TODO
@@ -64,7 +64,7 @@ public:
     IFACEMETHOD(CheckDeviceFormatConversion)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT source_format, D3DFORMAT target_format) override;
     IFACEMETHOD(CheckDeviceMultiSampleType)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT surface_format, BOOL windowed, D3DMULTISAMPLE_TYPE multisample_type, _Out_ DWORD* quality_levels) override;
     IFACEMETHOD(CheckDeviceType)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT display_format, D3DFORMAT back_buffer_format, BOOL windowed) override;
-    IFACEMETHOD(CreateDevice)(UINT adapter, D3DDEVTYPE device_type, HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ struct IDirect3DDevice9** device_interface) override;
+    IFACEMETHOD(CreateDevice)(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ IDirect3DDevice9** device_interface) override;
     IFACEMETHOD(EnumAdapterModes)(UINT adapter, D3DFORMAT format, UINT index, _Out_ D3DDISPLAYMODE* mode) override;
     IFACEMETHOD_(UINT, GetAdapterCount)() override;
     IFACEMETHOD(GetAdapterDisplayMode)(UINT adapter, _Out_ D3DDISPLAYMODE* mode) override;
@@ -72,13 +72,13 @@ public:
     IFACEMETHOD_(UINT, GetAdapterModeCount)(UINT adapter, D3DFORMAT format) override;
     IFACEMETHOD_(HMONITOR, GetAdapterMonitor)(UINT adapter) override;
     IFACEMETHOD(GetDeviceCaps)(UINT adapter, D3DDEVTYPE device_type, _Out_ D3DCAPS9* caps) override;
-    IFACEMETHOD(RegisterSoftwareDevice)(void* initialize_function) override;
+    IFACEMETHOD(RegisterSoftwareDevice)(_In_ void* initialize_function) override;
 
     // IDirect3D9Ex.
     IFACEMETHOD(CreateDeviceEx)(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters,
-        _Out_ struct D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ struct IDirect3DDevice9Ex** device_interface) override;
-    IFACEMETHOD(EnumAdapterModesEx)(UINT adapter, _In_ const struct D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode) override;
-    IFACEMETHOD(GetAdapterDisplayModeEx)(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ enum D3DDISPLAYROTATION* rotation) override;
+        _Out_ D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ IDirect3DDevice9Ex** device_interface) override;
+    IFACEMETHOD(EnumAdapterModesEx)(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode) override;
+    IFACEMETHOD(GetAdapterDisplayModeEx)(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation) override;
     IFACEMETHOD(GetAdapterLUID)(UINT adapter, _Out_ LUID* luid) override;
     IFACEMETHOD(GetAdapterModeCountEx)(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter) override;
 
@@ -86,12 +86,12 @@ private:
     ULONG m_references;
 };
 
-struct IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDK_version)
+IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDK_version)
 {
     return new(std::nothrow) Direct3D9();
 }
 
-HRESULT WINAPI Direct3DCreate9Ex(UINT SDK_version, _Outptr_ struct IDirect3D9Ex** direct3D)
+HRESULT WINAPI Direct3DCreate9Ex(UINT SDK_version, _Outptr_ IDirect3D9Ex** direct3D)
 {
     return E_NOTIMPL;
 }
@@ -163,7 +163,7 @@ IFACEMETHODIMP Direct3D9::CheckDeviceType(UINT adapter, D3DDEVTYPE device_type, 
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::CreateDevice(UINT adapter, D3DDEVTYPE device_type, HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ struct IDirect3DDevice9** device_interface)
+IFACEMETHODIMP Direct3D9::CreateDevice(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ IDirect3DDevice9** device_interface)
 {
     return E_NOTIMPL;
 }
@@ -203,23 +203,23 @@ IFACEMETHODIMP Direct3D9::GetDeviceCaps(UINT adapter, D3DDEVTYPE device_type, _O
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::RegisterSoftwareDevice(void* initialize_function)
+IFACEMETHODIMP Direct3D9::RegisterSoftwareDevice(_In_ void* initialize_function)
 {
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CreateDeviceEx(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters,
-    _Out_ struct D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ struct IDirect3DDevice9Ex** device_interface)
+    _Out_ D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ IDirect3DDevice9Ex** device_interface)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::EnumAdapterModesEx(UINT adapter, _In_ const struct D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode)
+IFACEMETHODIMP Direct3D9::EnumAdapterModesEx(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode)
 {
     return E_NOTIMPL;
 }
 
-IFACEMETHODIMP Direct3D9::GetAdapterDisplayModeEx(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ enum D3DDISPLAYROTATION* rotation)
+IFACEMETHODIMP Direct3D9::GetAdapterDisplayModeEx(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation)
 {
     return E_NOTIMPL;
 }
