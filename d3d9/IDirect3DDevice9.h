@@ -5,12 +5,6 @@
 
 struct IDirect3DDevice9 : public IUnknown
 {
-    // IUnknown.
-    IFACEMETHOD(QueryInterface)(REFIID riid, _Outptr_ void** object) = 0;
-    IFACEMETHOD_(ULONG, AddRef)() = 0;
-    IFACEMETHOD_(ULONG, Release)() = 0;
-
-    // IDirect3DDevice9.
     IFACEMETHOD(TestCooperativeLevel)() = 0;
     IFACEMETHOD_(UINT, GetAvailableTextureMem)() = 0;
     IFACEMETHOD(EvictManagedResources)() = 0;
