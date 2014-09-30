@@ -56,7 +56,7 @@ public:
     // IUnknown.
     IFACEMETHOD_(ULONG, AddRef)() override;
     IFACEMETHOD_(ULONG, Release)() override;
-    IFACEMETHOD(QueryInterface)(REFIID riid, _Outptr_ void** object) override;
+    IFACEMETHOD(QueryInterface)(REFIID riid, _COM_Outptr_ void** object) override;
 
     // IDirect3D9.
     IFACEMETHOD(CheckDepthStencilMatch)(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, D3DFORMAT render_target_format, D3DFORMAT depth_stencil_format) override;
@@ -115,7 +115,7 @@ IFACEMETHODIMP_(ULONG) Direct3D9::Release()
     return references;
 }
 
-IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _Outptr_ void** object)
+IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _COM_Outptr_ void** object)
 {
     HRESULT hr;
 
