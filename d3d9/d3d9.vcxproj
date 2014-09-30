@@ -86,6 +86,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="PixelShader.cpp" />
+    <ClCompile Include="Query.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
   </ItemGroup>
@@ -100,6 +101,7 @@
     <ClInclude Include="IDirect3DDevice9.h" />
     <ClInclude Include="IDirect3DIndexBuffer9.h" />
     <ClInclude Include="IDirect3DPixelShader9.h" />
+    <ClInclude Include="IDirect3DQuery9.h" />
     <ClInclude Include="IDirect3DResource9.h" />
     <ClInclude Include="IDirect3DTexture9.h" />
     <ClInclude Include="IDirect3DVertexBuffer9.h" />
