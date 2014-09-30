@@ -88,6 +88,7 @@
     <None Include="d3d9.def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ForwardDeclarations.h" />
     <ClInclude Include="IDirect3D9.h" />
     <ClInclude Include="IDirect3DDevice9.h" />
   </ItemGroup>

@@ -37,5 +37,8 @@
     <ClInclude Include="IDirect3DDevice9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ForwardDeclarations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

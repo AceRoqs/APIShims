@@ -1,51 +1,7 @@
 #ifndef IDIRECT3DDEVICE9_H
 #define IDIRECT3DDEVICE9_H
 
-struct IDirect3D9;
-struct IDirect3DSurface9;
-struct IDirect3DSwapChain9;
-struct IDirect3DBaseTexture9;
-struct IDirect3DVertexDeclaration9;
-struct IDirect3DVertexBuffer9;
-struct IDirect3DPixelShader9;
-struct IDirect3DIndexBuffer9;
-struct IDirect3DQuery9;
-struct IDirect3DTexture9;
-struct IDirect3DVolumeTexture9;
-struct IDirect3DCubeTexture9;
-struct IDirect3DStateBlock9;
-struct IDirect3DVertexShader9;
-
-struct D3DDISPLAYMODE;
-struct D3DPRESENT_PARAMETERS;
-struct D3DDEVICE_CREATION_PARAMETERS;
-struct D3DRASTER_STATUS;
-struct D3DGAMMARAMP;
-struct D3DVIEWPORT9;
-struct D3DMATERIAL9;
-struct D3DLIGHT9;
-struct D3DMATRIX;
-struct D3DCLIPSTATUS9;
-struct D3DRECT;
-struct D3DVERTEXELEMENT9;
-struct D3DRECTPATCH_INFO;
-struct D3DTRIPATCH_INFO;
-
-enum D3DCAPS9;
-enum D3DFORMAT;
-enum D3DBACKBUFFER_TYPE;
-enum D3DPOOL;
-enum D3DMULTISAMPLE_TYPE;
-enum D3DTEXTUREFILTERTYPE;
-enum D3DTRANSFORMSTATETYPE;
-enum D3DRENDERSTATETYPE;
-enum D3DSTATEBLOCKTYPE;
-enum D3DTEXTURESTAGESTATETYPE;
-enum D3DSAMPLERSTATETYPE;
-enum D3DPRIMITIVETYPE;
-enum D3DQUERYTYPE;
-
-typedef DWORD D3DCOLOR;
+#include "ForwardDeclarations.h"
 
 struct IDirect3DDevice9 : public IUnknown
 {

@@ -1,22 +1,7 @@
 #ifndef IDIRECT3D9_H
 #define IDIRECT3D9_H
 
-struct IDirect3DDevice9;
-struct IDirect3DDevice9Ex;
-struct IDirect3D9Ex;
-
-struct D3DDISPLAYMODEEX;
-struct D3DDISPLAYMODEFILTER;
-struct D3DDISPLAYMODE;
-struct D3DPRESENT_PARAMETERS;
-struct D3DADAPTER_IDENTIFIER9;
-struct D3DCAPS9;
-
-enum D3DDISPLAYROTATION;
-enum D3DDEVTYPE;
-enum D3DFORMAT;
-enum D3DMULTISAMPLE_TYPE;
-enum D3DRESOURCETYPE;
+#include "ForwardDeclarations.h"
 
 struct IDirect3D9 : public IUnknown
 {
