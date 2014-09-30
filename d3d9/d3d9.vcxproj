@@ -85,6 +85,7 @@
     <ClCompile Include="device.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d9.def" />
@@ -97,6 +98,7 @@
     <ClInclude Include="IDirect3DDevice9.h" />
     <ClInclude Include="IDirect3DResource9.h" />
     <ClInclude Include="IDirect3DTexture9.h" />
+    <ClInclude Include="IDirect3DVertexBuffer9.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
