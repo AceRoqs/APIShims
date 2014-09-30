@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CubeMapTexture.cpp" />
     <ClCompile Include="d3d9.cpp" />
     <ClCompile Include="device.cpp" />
     <ClCompile Include="dllmain.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="ForwardDeclarations.h" />
     <ClInclude Include="IDirect3D9.h" />
     <ClInclude Include="IDirect3DBaseTexture9.h" />
+    <ClInclude Include="IDirect3DCubeTexture.h" />
     <ClInclude Include="IDirect3DDevice9.h" />
     <ClInclude Include="IDirect3DResource9.h" />
     <ClInclude Include="IDirect3DTexture9.h" />
