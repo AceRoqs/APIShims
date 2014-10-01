@@ -3,7 +3,9 @@
 
 struct IDirect3D9;
 struct IDirect3D9Ex;
+struct IDirect3DAuthenticatedChannel9;
 struct IDirect3DBaseTexture9;
+struct IDirect3DCryptoSession9;
 struct IDirect3DCubeTexture9;
 struct IDirect3DDevice9;
 struct IDirect3DDevice9Ex;
@@ -25,6 +27,7 @@ struct D3DADAPTER_IDENTIFIER9;
 struct D3DBOX;
 struct D3DCAPS9;
 struct D3DCLIPSTATUS9;
+struct D3DCONTENTPROTECTIONCAPS;
 struct D3DDEVICE_CREATION_PARAMETERS;
 struct D3DDISPLAYMODE;
 struct D3DDISPLAYMODEEX;
@@ -48,6 +51,7 @@ struct D3DVERTEXELEMENT9;
 struct D3DVIEWPORT9;
 struct D3DVOLUME_DESC;
 
+enum D3DAUTHENTICATEDCHANNELTYPE;
 enum D3DBACKBUFFER_TYPE;
 enum D3DCAPS9;
 enum D3DCOMPOSERECTSOP;

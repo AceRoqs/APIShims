@@ -142,5 +142,12 @@ struct IDirect3DDevice9Ex : public IDirect3DDevice9
     IFACEMETHOD(GetDisplayModeEx)(UINT swap_chain, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation) = 0;
 };
 
+struct IDirect3DDevice9Video : public IUnknown
+{
+    IFACEMETHOD(GetContentProtectionCaps)(_In_ const GUID* crypto_type, _In_opt_ const GUID* decode_profile, _Out_ D3DCONTENTPROTECTIONCAPS* caps) = 0;
+    IFACEMETHOD(CreateAuthenticatedChannel)(D3DAUTHENTICATEDCHANNELTYPE channel_type, _Outptr_ IDirect3DAuthenticatedChannel9** channel, _Out_ HANDLE* channel_handle) = 0;
+    IFACEMETHOD(CreateCryptoSession)(_In_ const GUID* crypto_type, _In_opt_ const GUID* decode_profile, _Outptr_ IDirect3DCryptoSession9** crypto_session, _Out_ HANDLE* crypto_handle) = 0;
+};
+
 #endif
 
