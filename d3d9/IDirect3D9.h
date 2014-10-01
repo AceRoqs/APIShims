@@ -31,5 +31,10 @@ struct IDirect3D9Ex : public IDirect3D9
     IFACEMETHOD(GetAdapterModeCountEx)(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter) = 0;
 };
 
+struct IDirect3D9ExOverlayExtension : public IUnknown
+{
+    IFACEMETHOD(CheckDeviceOverlayType)(UINT adapter, D3DDEVTYPE device_type, UINT overlay_width, UINT overlay_height, D3DFORMAT overlay_format, _In_ D3DDISPLAYMODEEX* display_mode, D3DDISPLAYROTATION display_rotation, _Out_ D3DOVERLAYCAPS* overlay_caps) = 0;
+};
+
 #endif
 
