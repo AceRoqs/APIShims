@@ -92,6 +92,7 @@
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="VertexDeclaration.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d9.def" />
@@ -111,6 +112,7 @@
     <ClInclude Include="IDirect3DSwapChain9.h" />
     <ClInclude Include="IDirect3DTexture9.h" />
     <ClInclude Include="IDirect3DVertexBuffer9.h" />
+    <ClInclude Include="IDirect3DVertexDeclaration9.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
