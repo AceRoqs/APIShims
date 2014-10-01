@@ -87,6 +87,7 @@
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="PixelShader.cpp" />
     <ClCompile Include="Query.cpp" />
+    <ClCompile Include="VertexShader.cpp" />
     <ClCompile Include="StateBlock.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SwapChain.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="IDirect3DTexture9.h" />
     <ClInclude Include="IDirect3DVertexBuffer9.h" />
     <ClInclude Include="IDirect3DVertexDeclaration9.h" />
+    <ClInclude Include="IDirect3DVertexShader9.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
