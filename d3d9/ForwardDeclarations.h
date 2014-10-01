@@ -17,6 +17,7 @@ struct IDirect3DTexture9;
 struct IDirect3DVertexBuffer9;
 struct IDirect3DVertexDeclaration9;
 struct IDirect3DVertexShader9;
+struct IDirect3DVolume9;
 struct IDirect3DVolumeTexture9;
 
 struct D3DADAPTER_IDENTIFIER9;

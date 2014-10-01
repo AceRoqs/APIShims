@@ -95,6 +95,7 @@
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertexDeclaration.cpp" />
     <ClCompile Include="Volume.cpp" />
+    <ClCompile Include="VolumeTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d9.def" />
@@ -117,6 +118,7 @@
     <ClInclude Include="IDirect3DVertexDeclaration9.h" />
     <ClInclude Include="IDirect3DVertexShader9.h" />
     <ClInclude Include="IDirect3DVolume9.h" />
+    <ClInclude Include="IDirect3DVolumeTexture9.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

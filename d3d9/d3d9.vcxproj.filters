@@ -60,6 +60,9 @@
     <ClCompile Include="Volume.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VolumeTexture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d9.def">
@@ -116,6 +119,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IDirect3DVolume9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IDirect3DVolumeTexture9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
