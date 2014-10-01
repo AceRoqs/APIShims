@@ -89,6 +89,7 @@
     <ClCompile Include="Query.cpp" />
     <ClCompile Include="StateBlock.cpp" />
     <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
   </ItemGroup>
@@ -107,6 +108,7 @@
     <ClInclude Include="IDirect3DResource9.h" />
     <ClInclude Include="IDirect3DStateBlock9.h" />
     <ClInclude Include="IDirect3DSurface9.h" />
+    <ClInclude Include="IDirect3DSwapChain9.h" />
     <ClInclude Include="IDirect3DTexture9.h" />
     <ClInclude Include="IDirect3DVertexBuffer9.h" />
   </ItemGroup>
