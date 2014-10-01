@@ -132,6 +132,7 @@ IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _COM_Outptr_ void** object
     }
     else
     {
+        *object = nullptr;
         hr = E_NOINTERFACE;
     }
 
