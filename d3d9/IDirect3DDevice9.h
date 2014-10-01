@@ -96,12 +96,12 @@ struct IDirect3DDevice9 : public IUnknown
     IFACEMETHOD(CreateVertexShader)(_In_ const DWORD* function, _Outptr_ IDirect3DVertexShader9** shader) = 0;
     IFACEMETHOD(SetVertexShader)(_In_ IDirect3DVertexShader9* shader) = 0;
     IFACEMETHOD(GetVertexShader)(_Outptr_ IDirect3DVertexShader9** shader) = 0;
-    IFACEMETHOD(SetVertexShaderConstantF)(UINT start_register, _In_reads_(vector4_count * 4) const float* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(GetVertexShaderConstantF)(UINT start_register, _Out_writes_(vector4_count * 4) float* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(SetVertexShaderConstantI)(UINT start_register, _In_reads_(vector4_count * 4) const int* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(GetVertexShaderConstantI)(UINT start_register, _Out_writes_(vector4_count * 4) int* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(SetVertexShaderConstantB)(UINT start_register, _In_reads_(bool_count) const BOOL* constant_data, UINT bool_count) = 0;
-    IFACEMETHOD(GetVertexShaderConstantB)(UINT start_register, _Out_writes_(bool_count) BOOL* constant_data, UINT bool_count) = 0;
+    IFACEMETHOD(SetVertexShaderconstantF)(UINT start_register, _In_reads_(vector4_count * 4) const float* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(GetVertexShaderconstantF)(UINT start_register, _Out_writes_(vector4_count * 4) float* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(SetVertexShaderconstantI)(UINT start_register, _In_reads_(vector4_count * 4) const int* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(GetVertexShaderconstantI)(UINT start_register, _Out_writes_(vector4_count * 4) int* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(SetVertexShaderconstantB)(UINT start_register, _In_reads_(bool_count) const BOOL* constant_data, UINT bool_count) = 0;
+    IFACEMETHOD(GetVertexShaderconstantB)(UINT start_register, _Out_writes_(bool_count) BOOL* constant_data, UINT bool_count) = 0;
     IFACEMETHOD(SetStreamSource)(UINT stream_number, _In_ IDirect3DVertexBuffer9* stream_data, UINT offset_in_bytes, UINT stride) = 0;
     IFACEMETHOD(GetStreamSource)(UINT stream_number, _Outptr_ IDirect3DVertexBuffer9** stream_data, _Out_ UINT* offset_in_bytes, _Out_ UINT* stride) = 0;
     IFACEMETHOD(SetStreamSourceFreq)(UINT stream_number, UINT setting) = 0;
@@ -111,16 +111,35 @@ struct IDirect3DDevice9 : public IUnknown
     IFACEMETHOD(CreatePixelShader)(_In_ const DWORD* function, _Outptr_ IDirect3DPixelShader9** shader) = 0;
     IFACEMETHOD(SetPixelShader)(_In_ IDirect3DPixelShader9* shader) = 0;
     IFACEMETHOD(GetPixelShader)(_Outptr_ IDirect3DPixelShader9** shader) = 0;
-    IFACEMETHOD(SetPixelShaderConstantF)(UINT start_register, _In_reads_(vector4_count * 4) const float* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(GetPixelShaderConstantF)(UINT start_register, _Out_writes_(vector4_count * 4) float* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(SetPixelShaderConstantI)(UINT start_register, _In_reads_(vector4_count * 4) const int* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(GetPixelShaderConstantI)(UINT start_register, _Out_writes_(vector4_count * 4) int* constant_data, UINT vector4_count) = 0;
-    IFACEMETHOD(SetPixelShaderConstantB)(UINT start_register, _In_reads_(bool_count) const BOOL* constant_data, UINT bool_count) = 0;
-    IFACEMETHOD(GetPixelShaderConstantB)(UINT start_register, _Out_writes_(bool_count) BOOL* constant_data, UINT bool_count) = 0;
+    IFACEMETHOD(SetPixelShaderconstantF)(UINT start_register, _In_reads_(vector4_count * 4) const float* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(GetPixelShaderconstantF)(UINT start_register, _Out_writes_(vector4_count * 4) float* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(SetPixelShaderconstantI)(UINT start_register, _In_reads_(vector4_count * 4) const int* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(GetPixelShaderconstantI)(UINT start_register, _Out_writes_(vector4_count * 4) int* constant_data, UINT vector4_count) = 0;
+    IFACEMETHOD(SetPixelShaderconstantB)(UINT start_register, _In_reads_(bool_count) const BOOL* constant_data, UINT bool_count) = 0;
+    IFACEMETHOD(GetPixelShaderconstantB)(UINT start_register, _Out_writes_(bool_count) BOOL* constant_data, UINT bool_count) = 0;
     IFACEMETHOD(DrawRectPatch)(UINT handle, _In_reads_(4) const float* segment_count_per_edge, _In_ const D3DRECTPATCH_INFO* rect_patch_info) = 0;
     IFACEMETHOD(DrawTriPatch)(UINT handle, _In_reads_(4) const float* segment_count_per_edge, _In_ const D3DTRIPATCH_INFO* triangle_patch_info) = 0;
     IFACEMETHOD(DeletePatch)(UINT handle) = 0;
     IFACEMETHOD(CreateQuery)(D3DQUERYTYPE type, _Outptr_ IDirect3DQuery9** query) = 0;
+};
+
+struct IDirect3DDevice9Ex : public IDirect3DDevice9
+{
+    IFACEMETHOD(SetConvolutionMonoKernel)(UINT width, UINT height, _In_ float* rows, _In_ float* columns) = 0;
+    IFACEMETHOD(ComposeRects)(_In_ IDirect3DSurface9* source, _In_ IDirect3DSurface9* destination, _In_ IDirect3DVertexBuffer9* source_rects, UINT rect_count, _In_ IDirect3DVertexBuffer9* destination_rects, D3DCOMPOSERECTSOP operation, int x_offset, int y_offset) = 0;
+    IFACEMETHOD(PresentEx)(_In_opt_ const RECT* source_rect, _In_opt_ const RECT* destination_rect, _In_opt_ HWND destination_window, _In_opt_ const RGNDATA* dirty_region, DWORD flags) = 0;
+    IFACEMETHOD(GetGPUThreadPriority)(_Out_ INT* priority) = 0;
+    IFACEMETHOD(SetGPUThreadPriority)(INT priority) = 0;
+    IFACEMETHOD(WaitForVBlank)(UINT swap_chain) = 0;
+    IFACEMETHOD(CheckResourceResidency)(_Out_writes_(resource_count) IDirect3DResource9** resources, UINT32 resource_count) = 0;
+    IFACEMETHOD(SetMaximumFrameLatency)(UINT max_latency) = 0;
+    IFACEMETHOD(GetMaximumFrameLatency)(_Out_ UINT* max_latency) = 0;
+    IFACEMETHOD(CheckDeviceState)(_In_opt_ HWND destination_window) = 0;
+    IFACEMETHOD(CreateRenderTargetEx)(UINT width, UINT height, D3DFORMAT format, D3DMULTISAMPLE_TYPE multisample, DWORD multisample_quality, BOOL lockable, _Outptr_ IDirect3DSurface9** surface, _In_opt_ HANDLE* shared_handle, DWORD usage) = 0;
+    IFACEMETHOD(CreateOffscreenPlainSurfaceEx)(UINT width, UINT height, D3DFORMAT format, D3DPOOL pool, _Outptr_ IDirect3DSurface9** surface, _In_opt_ HANDLE* shared_handle, DWORD usage) = 0;
+    IFACEMETHOD(CreateDepthStencilSurfaceEx)(UINT width, UINT height, D3DFORMAT format, D3DMULTISAMPLE_TYPE multisample, DWORD multisample_quality, BOOL discard, _Outptr_ IDirect3DSurface9** surface, HANDLE* shared_handle, DWORD usage) = 0;
+    IFACEMETHOD(ResetEx)(_Inout_opt_ D3DPRESENT_PARAMETERS* presentation_parameters, _Inout_opt_ D3DDISPLAYMODEEX* fullscreen_display_mode) = 0;
+    IFACEMETHOD(GetDisplayModeEx)(UINT swap_chain, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation) = 0;
 };
 
 #endif

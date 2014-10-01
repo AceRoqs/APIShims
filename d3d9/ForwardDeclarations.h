@@ -10,6 +10,7 @@ struct IDirect3DDevice9Ex;
 struct IDirect3DIndexBuffer9;
 struct IDirect3DPixelShader9;
 struct IDirect3DQuery9;
+struct IDirect3DResource9;
 struct IDirect3DStateBlock9;
 struct IDirect3DSurface9;
 struct IDirect3DSwapChain9;
@@ -49,6 +50,7 @@ struct D3DVOLUME_DESC;
 
 enum D3DBACKBUFFER_TYPE;
 enum D3DCAPS9;
+enum D3DCOMPOSERECTSOP;
 enum D3DCUBEMAP_FACES;
 enum D3DDEVTYPE;
 enum D3DDISPLAYROTATION;
