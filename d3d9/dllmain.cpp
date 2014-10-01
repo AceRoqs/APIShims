@@ -1,4 +1,4 @@
-#include <Windows.h>
+#include "PreCompile.h"
 
 BOOL WINAPI DllMain(_In_ HINSTANCE instance, DWORD reason, _In_opt_ PVOID reserved)
 {

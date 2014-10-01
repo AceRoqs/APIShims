@@ -1,4 +1,4 @@
-#include <Windows.h>
+#include "PreCompile.h"
 #include <new>
 #include "IDirect3D9.h"
 
