@@ -1,9 +1,9 @@
-*.sdf
-*.suo
 *.user
-*.opensdf
-Debug/*
-Release/*
-d3d9/Debug/*
-d3d9/Release/*
-d3d9/ipch/*
+/*.sdf
+/*.suo
+/*.opensdf
+/ARM.*
+/Win32.*
+/x64.*
+/ipch
+
