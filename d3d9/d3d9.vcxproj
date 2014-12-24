@@ -93,7 +93,7 @@
   <ItemGroup>
     <ClCompile Include="CubeMapTexture.cpp" />
     <ClCompile Include="d3d9.cpp" />
-    <ClCompile Include="device.cpp" />
+    <ClCompile Include="Device.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="PixelShader.cpp" />
@@ -105,7 +105,7 @@
     <ClCompile Include="StateBlock.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SwapChain.cpp" />
-    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertexDeclaration.cpp" />
     <ClCompile Include="Video.cpp" />
