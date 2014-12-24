@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DTEXTURE9_H
-#define IDIRECT3DTEXTURE9_H
+#pragma once
 
 #include "IDirect3DBaseTexture9.h"
 
@@ -11,6 +10,4 @@ struct IDirect3DTexture9 : public IDirect3DBaseTexture9
     IFACEMETHOD(UnlockRect)(UINT level) = 0;
     IFACEMETHOD(AddDirtyRect)(_In_ const RECT* dirty_rect) = 0;
 };
-
-#endif
 

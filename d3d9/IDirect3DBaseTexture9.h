@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DBASETEXTURE9_H
-#define IDIRECT3DBASETEXTURE9_H
+#pragma once
 
 #include "IDirect3DResource9.h"
 
@@ -12,6 +11,4 @@ struct IDirect3DBaseTexture9 : public IDirect3DResource9
     IFACEMETHOD_(D3DTEXTUREFILTERTYPE, GetAutoGenFilterType)() = 0;
     IFACEMETHOD_(void, GenerateMipSubLevels)() = 0;
 };
-
-#endif
 

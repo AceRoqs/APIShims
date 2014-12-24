@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DVOLUME9_H
-#define IDIRECT3DVOLUME9_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -14,6 +13,4 @@ struct IDirect3DVolume9 : public IUnknown
     IFACEMETHOD(LockBox)(_Out_ D3DLOCKED_BOX* locked_volume, _In_opt_ const D3DBOX* box, DWORD flags) = 0;
     IFACEMETHOD(UnlockBox)() = 0;
 };
-
-#endif
 

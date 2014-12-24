@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DDEVICE9VIDEO_H
-#define IDIRECT3DDEVICE9VIDEO_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -31,6 +30,4 @@ struct IDirect3DCryptoSession9 : public IUnknown
     IFACEMETHOD(FinishSessionKeyRefresh)() = 0;
     IFACEMETHOD(GetEncryptionBltKey)(_Out_writes_bytes_(key_size) void* key, UINT key_size) = 0;
 };
-
-#endif
 

@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DVOLUMETEXTURE9_H
-#define IDIRECT3DVOLUMETEXTURE9_H
+#pragma once
 
 #include "IDirect3DBaseTexture9.h"
 
@@ -12,6 +11,4 @@ struct IDirect3DVolumeTexture9 : public IDirect3DBaseTexture9
     IFACEMETHOD(AddDirtyBox)(_In_opt_ const D3DBOX* dirty_box) = 0;
 };
 
-
-#endif
 

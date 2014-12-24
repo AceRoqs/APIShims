@@ -1,7 +1,4 @@
-#ifndef PRECOMPILE_H
-#define PRECOMPILE_H
+#pragma once
 
 #include <Windows.h>
-
-#endif
 

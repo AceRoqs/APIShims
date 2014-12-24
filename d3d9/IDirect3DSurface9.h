@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DSURFACE9_H
-#define IDIRECT3DSURFACE9_H
+#pragma once
 
 #include "IDirect3DResource9.h"
 
@@ -12,6 +11,4 @@ struct IDirect3DSurface9 : public IDirect3DResource9
     IFACEMETHOD(GetDC)(_Out_ HDC* device_context) = 0;
     IFACEMETHOD(ReleaseDC)(_In_ HDC device_context) = 0;
 };
-
-#endif
 

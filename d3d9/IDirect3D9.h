@@ -1,5 +1,4 @@
-#ifndef IDIRECT3D9_H
-#define IDIRECT3D9_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -35,6 +34,4 @@ struct IDirect3D9ExOverlayExtension : public IUnknown
 {
     IFACEMETHOD(CheckDeviceOverlayType)(UINT adapter, D3DDEVTYPE device_type, UINT overlay_width, UINT overlay_height, D3DFORMAT overlay_format, _In_ D3DDISPLAYMODEEX* display_mode, D3DDISPLAYROTATION display_rotation, _Out_ D3DOVERLAYCAPS* overlay_caps) = 0;
 };
-
-#endif
 

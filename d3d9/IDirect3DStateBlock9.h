@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DSTATEBLOCK9_H
-#define IDIRECT3DSTATEBLOCK9_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -9,6 +8,4 @@ struct IDirect3DStateBlock9 : public IUnknown
     IFACEMETHOD(Capture)() = 0;
     IFACEMETHOD(Apply)() = 0;
 };
-
-#endif
 

@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DRESOURCE_H
-#define IDIRECT3DRESOURCE_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -14,6 +13,4 @@ struct IDirect3DResource9 : public IUnknown
     IFACEMETHOD_(void, PreLoad)() = 0;
     IFACEMETHOD_(D3DRESOURCETYPE, GetType)() = 0;
 };
-
-#endif
 

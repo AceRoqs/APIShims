@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DDEVICE9_H
-#define IDIRECT3DDEVICE9_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -141,6 +140,4 @@ struct IDirect3DDevice9Ex : public IDirect3DDevice9
     IFACEMETHOD(ResetEx)(_Inout_opt_ D3DPRESENT_PARAMETERS* presentation_parameters, _Inout_opt_ D3DDISPLAYMODEEX* fullscreen_display_mode) = 0;
     IFACEMETHOD(GetDisplayModeEx)(UINT swap_chain, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation) = 0;
 };
-
-#endif
 

@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DCUBETEXTURE_H
-#define IDIRECT3DCUBETEXTURE_H
+#pragma once
 
 #include "IDirect3DBaseTexture9.h"
 
@@ -11,6 +10,4 @@ struct IDirect3DCubeTexture9 : public IDirect3DBaseTexture9
     IFACEMETHOD(UnlockRect)(D3DCUBEMAP_FACES face_type, UINT level) = 0;
     IFACEMETHOD(AddDirtyRect)(D3DCUBEMAP_FACES face_type, _In_ const RECT* dirty_rect) = 0;
 };
-
-#endif
 

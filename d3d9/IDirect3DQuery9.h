@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DQUERY9_H
-#define IDIRECT3DQUERY9_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -11,6 +10,4 @@ struct IDirect3DQuery9 : public IUnknown
     IFACEMETHOD(Issue)(DWORD flags) = 0;
     IFACEMETHOD(GetData)(_Out_writes_bytes_opt_(size) void* data, DWORD size, DWORD flags) = 0;
 };
-
-#endif
 

@@ -1,5 +1,4 @@
-#ifndef FORWARDDECLARATIONS_H
-#define FORWARDDECLARATIONS_H
+#pragma once
 
 struct IDirect3D9;
 struct IDirect3D9Ex;
@@ -75,6 +74,4 @@ enum D3DTEXTURESTAGESTATETYPE;
 enum D3DTRANSFORMSTATETYPE;
 
 typedef DWORD D3DCOLOR;
-
-#endif
 

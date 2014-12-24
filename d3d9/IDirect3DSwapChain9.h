@@ -1,5 +1,4 @@
-#ifndef IDIRECT3DSWAPCHAIN9_H
-#define IDIRECT3DSWAPCHAIN9_H
+#pragma once
 
 #include "ForwardDeclarations.h"
 
@@ -20,6 +19,4 @@ struct IDirect3DSwapChain9Ex : public IDirect3DSwapChain9
     IFACEMETHOD(GetPresentStats)(_Out_ D3DPRESENTSTATS* presentation_statistics) = 0;
     IFACEMETHOD(GetDisplayModeEx)(_Out_ D3DDISPLAYMODEEX* mode, _Out_ D3DDISPLAYROTATION* rotation) = 0;
 };
-
-#endif
 
