@@ -88,14 +88,14 @@ private:
 
 IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDK_version)
 {
-    UNREFERENCED_PARAMETER(SDK_version);
+    (void)SDK_version;  // Unreferenced parameter.
     return new(std::nothrow) Direct3D9();
 }
 
 HRESULT WINAPI Direct3DCreate9Ex(UINT SDK_version, _Outptr_ IDirect3D9Ex** direct3D)
 {
-    UNREFERENCED_PARAMETER(SDK_version);
-    UNREFERENCED_PARAMETER(direct3D);
+    (void)SDK_version;  // Unreferenced parameter.
+    (void)direct3D;
     return E_NOTIMPL;
 }
 
@@ -144,72 +144,72 @@ IFACEMETHODIMP Direct3D9::QueryInterface(REFIID riid, _COM_Outptr_ void** object
 
 IFACEMETHODIMP Direct3D9::CheckDepthStencilMatch(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, D3DFORMAT render_target_format, D3DFORMAT depth_stencil_format)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(adapter_format);
-    UNREFERENCED_PARAMETER(render_target_format);
-    UNREFERENCED_PARAMETER(depth_stencil_format);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)adapter_format;
+    (void)render_target_format;
+    (void)depth_stencil_format;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CheckDeviceFormat(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT adapter_format, DWORD usage, D3DRESOURCETYPE resource_type, D3DFORMAT check_format)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(adapter_format);
-    UNREFERENCED_PARAMETER(usage);
-    UNREFERENCED_PARAMETER(resource_type);
-    UNREFERENCED_PARAMETER(check_format);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)adapter_format;
+    (void)usage;
+    (void)resource_type;
+    (void)check_format;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CheckDeviceFormatConversion(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT source_format, D3DFORMAT target_format)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(source_format);
-    UNREFERENCED_PARAMETER(target_format);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)source_format;
+    (void)target_format;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CheckDeviceMultiSampleType(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT surface_format, BOOL windowed, D3DMULTISAMPLE_TYPE multisample_type, _Out_ DWORD* quality_levels)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(surface_format);
-    UNREFERENCED_PARAMETER(windowed);
-    UNREFERENCED_PARAMETER(multisample_type);
-    UNREFERENCED_PARAMETER(quality_levels);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)surface_format;
+    (void)windowed;
+    (void)multisample_type;
+    (void)quality_levels;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CheckDeviceType(UINT adapter, D3DDEVTYPE device_type, D3DFORMAT display_format, D3DFORMAT back_buffer_format, BOOL windowed)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(display_format);
-    UNREFERENCED_PARAMETER(back_buffer_format);
-    UNREFERENCED_PARAMETER(windowed);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)display_format;
+    (void)back_buffer_format;
+    (void)windowed;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CreateDevice(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters, _Outptr_ IDirect3DDevice9** device_interface)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(focus_window);
-    UNREFERENCED_PARAMETER(behavior_flags);
-    UNREFERENCED_PARAMETER(presentation_parameters);
-    UNREFERENCED_PARAMETER(device_interface);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)focus_window;
+    (void)behavior_flags;
+    (void)presentation_parameters;
+    (void)device_interface;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::EnumAdapterModes(UINT adapter, D3DFORMAT format, UINT index, _Out_ D3DDISPLAYMODE* mode)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(format);
-    UNREFERENCED_PARAMETER(index);
-    UNREFERENCED_PARAMETER(mode);
+    (void)adapter;              // Unreferenced parameter.
+    (void)format;
+    (void)index;
+    (void)mode;
     return E_NOTIMPL;
 }
 
@@ -220,87 +220,87 @@ IFACEMETHODIMP_(UINT) Direct3D9::GetAdapterCount()
 
 IFACEMETHODIMP Direct3D9::GetAdapterDisplayMode(UINT adapter, _Out_ D3DDISPLAYMODE* mode)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(mode);
+    (void)adapter;              // Unreferenced parameter.
+    (void)mode;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::GetAdapterIdentifier(UINT adapter, DWORD flags, _Out_ D3DADAPTER_IDENTIFIER9* identifier)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(flags);
-    UNREFERENCED_PARAMETER(identifier);
+    (void)adapter;              // Unreferenced parameter.
+    (void)flags;
+    (void)identifier;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP_(UINT) Direct3D9::GetAdapterModeCount(UINT adapter, D3DFORMAT format)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(format);
+    (void)adapter;              // Unreferenced parameter.
+    (void)format;
     return 0;
 }
 
 IFACEMETHODIMP_(HMONITOR) Direct3D9::GetAdapterMonitor(UINT adapter)
 {
-    UNREFERENCED_PARAMETER(adapter);
+    (void)adapter;              // Unreferenced parameter.
     return nullptr;
 }
 
 IFACEMETHODIMP Direct3D9::GetDeviceCaps(UINT adapter, D3DDEVTYPE device_type, _Out_ D3DCAPS9* caps)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(caps);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)caps;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::RegisterSoftwareDevice(_In_ void* initialize_function)
 {
-    UNREFERENCED_PARAMETER(initialize_function);
+    (void)initialize_function;  // Unreferenced parameter.
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::CreateDeviceEx(UINT adapter, D3DDEVTYPE device_type, _In_opt_ HWND focus_window, DWORD behavior_flags, _Inout_ D3DPRESENT_PARAMETERS* presentation_parameters,
     _Out_ D3DDISPLAYMODEEX* full_screen_display_mode, _Outptr_ IDirect3DDevice9Ex** device_interface)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(device_type);
-    UNREFERENCED_PARAMETER(focus_window);
-    UNREFERENCED_PARAMETER(behavior_flags);
-    UNREFERENCED_PARAMETER(presentation_parameters);
-    UNREFERENCED_PARAMETER(full_screen_display_mode);
-    UNREFERENCED_PARAMETER(device_interface);
+    (void)adapter;              // Unreferenced parameter.
+    (void)device_type;
+    (void)focus_window;
+    (void)behavior_flags;
+    (void)presentation_parameters;
+    (void)full_screen_display_mode;
+    (void)device_interface;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::EnumAdapterModesEx(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter, UINT index, _Out_ D3DDISPLAYMODEEX* mode)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(filter);
-    UNREFERENCED_PARAMETER(index);
-    UNREFERENCED_PARAMETER(mode);
+    (void)adapter;              // Unreferenced parameter.
+    (void)filter;
+    (void)index;
+    (void)mode;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::GetAdapterDisplayModeEx(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(mode);
-    UNREFERENCED_PARAMETER(rotation);
+    (void)adapter;              // Unreferenced parameter.
+    (void)mode;
+    (void)rotation;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::GetAdapterLUID(UINT adapter, _Out_ LUID* luid)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(luid);
+    (void)adapter;              // Unreferenced parameter.
+    (void)luid;
     return E_NOTIMPL;
 }
 
 IFACEMETHODIMP Direct3D9::GetAdapterModeCountEx(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter)
 {
-    UNREFERENCED_PARAMETER(adapter);
-    UNREFERENCED_PARAMETER(filter);
+    (void)adapter;              // Unreferenced parameter.
+    (void)filter;
     return E_NOTIMPL;
 }
 
