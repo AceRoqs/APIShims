@@ -50,6 +50,8 @@ struct D3DCAPS9; // TODO
 
 class Direct3D9 : public IDirect3D9Ex
 {
+    ULONG m_references;
+
 public:
     Direct3D9();
 
@@ -81,9 +83,6 @@ public:
     IFACEMETHOD(GetAdapterDisplayModeEx)(UINT adapter, _Out_opt_ D3DDISPLAYMODEEX* mode, _Out_opt_ D3DDISPLAYROTATION* rotation) override;
     IFACEMETHOD(GetAdapterLUID)(UINT adapter, _Out_ LUID* luid) override;
     IFACEMETHOD(GetAdapterModeCountEx)(UINT adapter, _In_ const D3DDISPLAYMODEFILTER* filter) override;
-
-private:
-    ULONG m_references;
 };
 
 IDirect3D9* WINAPI Direct3DCreate9(_In_ UINT SDK_version)
